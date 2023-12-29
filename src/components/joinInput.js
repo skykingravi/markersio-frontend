@@ -20,6 +20,7 @@ const JoinInput = () => {
                 joinEmail: email,
             });
             // alert(response.data.message);
+            setEmail("");
         } catch (error) {
             console.error(error);
         } finally {

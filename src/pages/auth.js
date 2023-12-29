@@ -36,9 +36,7 @@ const Login = ({ setShowPreLoader }) => {
                 setCookies("access_token", response.data.token);
                 window.localStorage.setItem("token", response.data.token);
                 window.localStorage.setItem("userId", response.data.userId);
-                setTimeout(() => {
-                    navigate("/editor");
-                }, 2000);
+                navigate("/editor");
             }
         } catch (error) {
             console.error(error);
