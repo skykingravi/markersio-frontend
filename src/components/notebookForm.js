@@ -130,9 +130,7 @@ const NotebookForm = ({
             } catch (error) {
                 console.error(error);
             } finally {
-                setTimeout(() => {
-                    setShowPreLoader(false);
-                }, 2000);
+                setShowPreLoader(false);
             }
         } else {
             try {
@@ -147,9 +145,7 @@ const NotebookForm = ({
             } catch (error) {
                 console.error(error);
             } finally {
-                setTimeout(() => {
-                    setShowPreLoader(false);
-                }, 2000);
+                setShowPreLoader(false);
             }
         }
         setShowNotebookForm(false);

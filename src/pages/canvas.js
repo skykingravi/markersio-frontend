@@ -169,9 +169,7 @@ const Canvas = ({
     useEffect(() => {
         setShowPreLoader(true);
         init();
-        setTimeout(() => {
-            setShowPreLoader(false);
-        }, 2000);
+        setShowPreLoader(false);
     }, [init]);
 
     const fetchPages = async () => {
@@ -189,9 +187,7 @@ const Canvas = ({
         } catch (error) {
             console.error(error);
         } finally {
-            setTimeout(() => {
-                setShowPreLoader(false);
-            }, 2000);
+            setShowPreLoader(false);
         }
     };
 
@@ -214,9 +210,7 @@ const Canvas = ({
         } catch (error) {
             console.error(error);
         } finally {
-            setTimeout(() => {
-                setShowPreLoader(false);
-            }, 2000);
+            setShowPreLoader(false);
         }
     };
 
@@ -379,9 +373,7 @@ const Canvas = ({
             } catch (error) {
                 console.error(error);
             } finally {
-                setTimeout(() => {
-                    setShowPreLoader(false);
-                }, 2000);
+                setShowPreLoader(false);
             }
         });
         try {
@@ -396,9 +388,7 @@ const Canvas = ({
         } catch (error) {
             console.error(error);
         } finally {
-            setTimeout(() => {
-                setShowPreLoader(false);
-            }, 2000);
+            setShowPreLoader(false);
         }
     };
 
@@ -528,9 +518,7 @@ const Canvas = ({
         } catch (error) {
             console.error(error);
         } finally {
-            setTimeout(() => {
-                setShowPreLoader(false);
-            }, 2000);
+            setShowPreLoader(false);
         }
     };
 
@@ -593,9 +581,7 @@ const Canvas = ({
         } catch (error) {
             console.error(error);
         } finally {
-            setTimeout(() => {
-                setShowPreLoader(false);
-            }, 2000);
+            setShowPreLoader(false);
         }
     };
 

@@ -46,9 +46,7 @@ const Editor = () => {
         } catch (error) {
             console.error(error);
         } finally {
-            setTimeout(() => {
-                setShowPreLoader(false);
-            }, 2000);
+            setShowPreLoader(false);
         }
     }, [userId, SERVER_URL, cookies.access_token]);
 
@@ -145,9 +143,7 @@ const Editor = () => {
         } catch (error) {
             console.error(error);
         } finally {
-            setTimeout(() => {
-                setShowPreLoader(false);
-            }, 2000);
+            setShowPreLoader(false);
         }
     };
 
@@ -181,9 +177,7 @@ const Editor = () => {
         } catch (error) {
             console.error(error);
         } finally {
-            setTimeout(() => {
-                setShowPreLoader(false);
-            }, 2000);
+            setShowPreLoader(false);
         }
     };
 
@@ -205,9 +199,7 @@ const Editor = () => {
         } catch (error) {
             console.error(error);
         } finally {
-            setTimeout(() => {
-                setShowPreLoader(false);
-            }, 2000);
+            setShowPreLoader(false);
         }
     };
 

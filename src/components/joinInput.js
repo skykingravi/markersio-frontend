@@ -26,9 +26,7 @@ const JoinInput = () => {
             setTimeout(() => {
                 setIsDisable(false);
             }, 2000);
-            setTimeout(() => {
-                setShowPreLoader(false);
-            }, 2000);
+            setShowPreLoader(false);
         }
     };
 

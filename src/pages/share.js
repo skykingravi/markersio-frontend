@@ -20,9 +20,7 @@ const Share = () => {
             } catch (error) {
                 console.error(error);
             } finally {
-                setTimeout(() => {
-                    setShowPreLoader(false);
-                }, 2000);
+                setShowPreLoader(false);
             }
         },
         [SERVER_URL]
