@@ -1,0 +1,71 @@
+.contact-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    .contact-wrapper {
+        text-align: center;
+        display: flex;
+        justify-content: flex-start;
+        width: min(400px, 100%);
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        background-color: $orange-shade;
+        padding: 15px 15px 20px;
+        border: 3px solid $black;
+        border-radius: 15px;
+        h2 {
+            font-family: "Bebas Neue", sans-serif;
+            border-bottom: 2px solid rgba(15, 15, 15, 0.25);
+            font-size: 5rem;
+            font-weight: 500;
+            &::selection {
+                background-color: $black;
+                color: $orange-shade;
+            }
+        }
+        div {
+            width: 100%;
+        }
+        label {
+            font-family: "Urbanist", sans-serif;
+            font-size: 2.25rem;
+            font-weight: 500;
+            &::selection {
+                background-color: $black;
+                color: $orange-shade;
+            }
+        }
+        input,
+        textarea {
+            margin-top: 2px;
+            font-family: "Urbanist", sans-serif;
+            border-radius: 10px;
+            font-size: 2.5rem;
+            font-weight: 500;
+            outline: none;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            box-shadow: 3px 3px 0px $black;
+            border: 2px solid $black;
+            &::selection {
+                background-color: $orange-shade;
+                color: $black;
+            }
+        }
+        textarea {
+            resize: vertical;
+        }
+        .btn {
+            background-color: $blue-shade;
+            font-size: 3.5rem;
+            padding: 2px 24px;
+            span {
+                padding-top: 3px;
+            }
+        }
+    }
+}

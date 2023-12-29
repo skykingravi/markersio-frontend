@@ -1,0 +1,240 @@
+.add-vb-btn {
+    position: fixed;
+    z-index: 99;
+    right: 30px;
+    bottom: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 3px 3px 0px $black;
+    border: 2px solid $black;
+    cursor: pointer;
+    background-color: $blue-shade;
+    transition: box-shadow 0.5s ease;
+    &:hover {
+        box-shadow: 1px 1px 0px $black;
+    }
+}
+.virtual-notebooks {
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(100px, max-content));
+    padding: 90px 15px 15px;
+    grid-gap: 15px;
+    .virtual-notebook {
+        box-shadow: 3px 3px 0px $black;
+        border: 2px solid $black;
+        border-radius: 15px;
+        padding: 10px;
+        .heading {
+            text-overflow: ellipsis;
+            font-family: "Bebas Neue", sans-serif;
+            font-size: 4rem;
+            white-space: nowrap;
+            width: 100%;
+            overflow: hidden;
+            font-weight: 500;
+        }
+        .description {
+            font-family: "Urbanist", sans-serif;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-weight: 500;
+            width: 100%;
+            font-size: 2.75rem;
+            margin: 2px 0 10px;
+            overflow: hidden;
+        }
+        .creation-details {
+            font-family: "Urbanist", sans-serif;
+            margin-bottom: 5px;
+            font-weight: 100;
+            color: rgba(15, 15, 15, 0.5);
+            font-size: 1.5rem;
+        }
+        .heading::selection,
+        .description::selection,
+        .creation-details::selection {
+            background-color: $black;
+            color: $white;
+        }
+        .buttons {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 3px;
+            .btn-icon {
+                width: 40px;
+                height: 40px;
+                .icon {
+                    width: 28px;
+                    height: 28px;
+                }
+            }
+        }
+    }
+    .empty {
+        text-align: center;
+        width: 100%;
+        height: calc(100vh - 105px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+        h3 {
+            font-family: "Urbanist", sans-serif;
+            font-weight: 600;
+            font-size: 4rem;
+        }
+        p {
+            font-family: "Urbanist", sans-serif;
+            font-weight: 400;
+            font-size: 2rem;
+        }
+    }
+}
+
+.notebook-form,
+.share-link {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 100%;
+    backdrop-filter: blur(10px);
+    background-color: rgba(240, 240, 240, 0.75);
+    z-index: 101;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .notebook-form-container,
+    .share-link-container {
+        display: flex;
+        justify-content: flex-start;
+        width: min(350px, 100%);
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        background-color: $red-shade;
+        padding: 35px 15px;
+        border: 3px solid $black;
+        border-radius: 15px;
+        position: relative;
+        .hide-btn {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            &:hover {
+                background-color: rgba(240, 240, 240, 0.5);
+            }
+            .close-icon {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 12px;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            h1 {
+                font-family: "Bebas Neue", sans-serif;
+                border-bottom: 2px solid rgba(15, 15, 15, 0.25);
+                font-size: 4.5rem;
+                font-weight: 500;
+                &::selection {
+                    background-color: $black;
+                    color: $red-shade;
+                }
+            }
+            div {
+                width: 100%;
+            }
+            label {
+                font-family: "Urbanist", sans-serif;
+                font-size: 2.25rem;
+                font-weight: 500;
+                &::selection {
+                    background-color: $black;
+                    color: $red-shade;
+                }
+            }
+            input[type="text"] {
+                font-family: "Urbanist", sans-serif;
+                border-radius: 10px;
+                font-size: 2rem;
+                font-weight: 500;
+                outline: none;
+                border: none;
+                width: 100%;
+                padding: 10px;
+                box-shadow: 3px 3px 0px $black;
+                border: 2px solid $black;
+                &::selection {
+                    background-color: $red-shade;
+                    color: $black;
+                }
+            }
+            .btn {
+                margin-top: 10px;
+                font-size: 3.25rem;
+            }
+        }
+    }
+    .share-link-container {
+        text-align: center;
+        h1 {
+            font-family: "Bebas Neue", sans-serif;
+            border-bottom: 2px solid rgba(15, 15, 15, 0.25);
+            font-size: 4.5rem;
+            font-weight: 500;
+            &::selection {
+                background-color: $black;
+                color: $red-shade;
+            }
+        }
+        div {
+            width: 100%;
+            font-family: "Urbanist", sans-serif;
+            font-weight: 500;
+            label {
+                font-size: 1.75rem;
+                &::selection {
+                    background-color: $black;
+                    color: $red-shade;
+                }
+            }
+            input {
+                border-radius: 10px;
+                font-size: 2rem;
+                outline: none;
+                border: none;
+                width: 100%;
+                padding: 10px;
+                box-shadow: 3px 3px 0px $black;
+                border: 2px solid $black;
+                &::selection {
+                    background-color: $red-shade;
+                    color: $black;
+                }
+            }
+            a {
+                font-size: 1.5rem;
+                margin-top: 5px;
+                display: inline-block;
+                text-decoration: underline;
+            }
+        }
+        .btn {
+            margin-top: 10px;
+            font-size: 3.25rem;
+        }
+    }
+}

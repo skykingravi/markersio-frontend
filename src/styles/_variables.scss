@@ -1,0 +1,23 @@
+$red-shade: #e6445a;
+$orange-shade: #ec5e3c;
+$yellow-shade: #f4c01f;
+$green-shade: #5eb553;
+$blue-shade: #2d71e2;
+$purple-shade: #7768e4;
+$black: #0f0f0f;
+$white: #f0f0f0;
+
+$gradient: linear-gradient(
+    45deg,
+    $purple-shade,
+    $blue-shade,
+    $green-shade,
+    $yellow-shade,
+    $orange-shade,
+    $red-shade,
+    $orange-shade,
+    $yellow-shade,
+    $green-shade,
+    $blue-shade,
+    $purple-shade
+);

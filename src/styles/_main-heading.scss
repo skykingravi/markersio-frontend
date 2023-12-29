@@ -1,0 +1,29 @@
+@mixin main-heading {
+    font-size: 5.5rem;
+    cursor: pointer;
+    font-family: "Georama", sans-serif;
+    font-weight: 900;
+    letter-spacing: 2px;
+    user-select: none;
+    border-bottom: 2px solid rgba(15, 15, 15, 0.25);
+    animation: none;
+    line-height: 40px;
+    padding-bottom: 5px;
+    &:hover {
+        color: transparent;
+        filter: drop-shadow(1px 1px 0px $black);
+        background-image: $gradient;
+        background-size: 200%;
+        animation: heading-animation 5s infinite linear backwards;
+        background-clip: text;
+    }
+}
+
+@keyframes heading-animation {
+    from {
+        background-position: 0% center;
+    }
+    to {
+        background-position: -200% center;
+    }
+}

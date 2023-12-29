@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $black;
+    text-decoration: none;
+}
+
+html,
+body {
+    scroll-behavior: smooth;
+    background-color: var(--clr2);
+    font-size: 8px;
+}
+
+#root {
+    width: 100vw;
+    min-height: 100vh;
+}
+
+.page {
+    padding: 90px 15px 15px 15px;
+}

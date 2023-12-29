@@ -1,0 +1,191 @@
+.auth-page {
+    background-color: $black;
+    min-height: 100vh;
+    .auth-container {
+        background-color: $green-shade;
+        border-radius: 15px;
+        height: max(530px, calc(100vh - 105px));
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        .auth-wrapper {
+            position: absolute;
+            z-index: 11;
+            height: max(500px, calc(100% - 30px));
+            left: 50%;
+            top: 15px;
+            transform: translateX(calc(-100% - 15px));
+            width: min(500px, calc(50% - 30px));
+            background-color: $purple-shade;
+            padding: 15px 15px 20px;
+            border: 3px solid $black;
+            border-radius: 10px;
+            transition: transform 0.8s ease;
+            overflow: hidden;
+            form {
+                position: absolute;
+                left: 15px;
+                top: 15px;
+                width: calc(100% - 30px);
+                height: calc(100% - 30px);
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 10px;
+                transition: left 0.8s ease;
+                &.register-wrapper {
+                    left: 200%;
+                }
+                h1 {
+                    font-family: "Bebas Neue", sans-serif;
+                    border-bottom: 2px solid rgba(15, 15, 15, 0.25);
+                    font-size: 5rem;
+                    font-weight: 500;
+                    &::selection {
+                        background-color: $black;
+                        color: $purple-shade;
+                    }
+                }
+                div {
+                    width: 100%;
+                    label {
+                        font-family: "Urbanist", sans-serif;
+                        font-size: 2.25rem;
+                        font-weight: 500;
+                        &::selection {
+                            background-color: $black;
+                            color: $purple-shade;
+                        }
+                    }
+                    input[type="text"],
+                    input[type="email"],
+                    input[type="password"] {
+                        margin-top: 2px;
+                        font-family: "Urbanist", sans-serif;
+                        border-radius: 10px;
+                        font-size: 2.5rem;
+                        font-weight: 500;
+                        outline: none;
+                        border: none;
+                        width: 80%;
+                        padding: 10px;
+                        box-shadow: 3px 3px 0px $black;
+                        border: 2px solid $black;
+                        &::selection {
+                            background-color: $purple-shade;
+                            color: $black;
+                        }
+                    }
+                    input[type="checkbox"] {
+                        accent-color: $green-shade;
+                        margin-right: 5px;
+                    }
+                }
+                .btn {
+                    background-color: $green-shade;
+                    font-size: 3.5rem;
+                    padding: 2px 24px;
+                    margin-top: 5px;
+                    span {
+                        padding-top: 3px;
+                    }
+                }
+            }
+        }
+        .login-text,
+        .register-text {
+            position: absolute;
+            top: 50%;
+            width: min(500px, 100%);
+            height: max-content;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            align-items: center;
+            flex-direction: column;
+            z-index: 10;
+            h3 {
+                font-family: "Bebas Neue", sans-serif;
+                border-bottom: 2px solid rgba(15, 15, 15, 0.25);
+                font-size: 3.75rem;
+                font-weight: 500;
+                &::selection {
+                    background-color: $black;
+                    color: $purple-shade;
+                }
+            }
+            .btn {
+                background-color: $purple-shade;
+                font-size: 3.25rem;
+                padding: 2px 24px;
+                span {
+                    padding-top: 3px;
+                }
+            }
+        }
+        .login-text {
+            transform: translate(calc(-100% - 15px), -50%);
+            left: -50%;
+            transition: left 0.8s ease;
+        }
+        .register-text {
+            transform: translate(calc(100% + 15px), -50%);
+            right: 50%;
+            transition: right 0.8s ease;
+        }
+
+        &.move {
+            .auth-wrapper {
+                transform: translateX(15px);
+                .login-wrapper {
+                    left: -200%;
+                }
+                .register-wrapper {
+                    left: 15px;
+                }
+            }
+            .login-text {
+                left: 50%;
+            }
+            .register-text {
+                right: -50%;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            height: 600px;
+            .auth-wrapper {
+                height: min(450px, calc(100% - 30px));
+                width: calc(100% - 30px);
+                left: 15px;
+                transform: none;
+            }
+            .login-text,
+            .register-text {
+                top: initial;
+                bottom: 15px;
+            }
+            .login-text {
+                left: -50%;
+                transform: translateX(-50%);
+            }
+            .register-text {
+                transform: translateX(50%);
+                right: 50%;
+            }
+
+            &.move {
+                .auth-wrapper {
+                    transform: translateX(0);
+                }
+                .login-text {
+                    left: 50%;
+                }
+                .register-text {
+                    right: -50%;
+                }
+            }
+        }
+    }
+}

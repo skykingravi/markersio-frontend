@@ -1,0 +1,233 @@
+.canvas-container {
+    width: 100vw;
+    user-select: none;
+    height: 100vh;
+    position: fixed;
+    z-index: 300;
+    top: 0;
+    left: 0;
+    #canvas {
+        width: 100%;
+        height: 100%;
+        cursor: none !important;
+    }
+    #cursor {
+        z-index: 0;
+        position: absolute;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 1px solid;
+    }
+    .current-page-no {
+        position: absolute;
+        padding: 10px;
+        top: 0;
+        left: 0;
+        font-family: "Urbanist", sans-serif;
+        font-weight: 500;
+        cursor: pointer;
+        font-size: 2rem;
+        background-color: var(--btn-theme1);
+        color: var(--btn-theme2);
+    }
+    .btns-container {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translate(0%, -50%);
+        border-radius: 15px;
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 6px;
+        border: 2px solid var(--btn-theme1);
+        box-shadow: 3px 3px 0px var(--btn-theme1);
+        transition: transform 0.8s ease;
+        background-color: var(--btn-theme2);
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            path {
+                fill: var(--btn-theme1);
+            }
+            &[disabled] {
+                &:hover {
+                    background-color: transparent;
+                }
+                path {
+                    fill: var(--btn-disable);
+                }
+            }
+            &:hover,
+            &.selected {
+                background-color: var(--btn-hover);
+            }
+        }
+        &.hidden {
+            transform: translate(calc(-100% - 30px), -50%);
+        }
+        .stroke-wrapper {
+            display: flex;
+            flex-direction: column;
+            left: calc(100% + 15px);
+            top: 0;
+            position: absolute;
+            align-items: center;
+            padding: 15px 10px 50px;
+            width: 50px;
+            border-radius: 15px;
+            height: 200px;
+            justify-content: center;
+            background-color: var(--btn-theme1);
+            div {
+                position: absolute;
+                bottom: calc(100% + 10px);
+                left: 50%;
+                transform: translateX(-50%);
+                border: 1px solid;
+                border-radius: 50%;
+            }
+            .stroke-input {
+                transform: rotateZ(-90deg);
+                width: 130px;
+                accent-color: var(--input-theme);
+            }
+            .btn-icon {
+                position: absolute;
+                background-color: transparent;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30px;
+                height: 30px;
+                .icon {
+                    width: 24px;
+                    height: 24px;
+                    path {
+                        transition: fill 0.5s ease;
+                        fill: var(--input-theme);
+                    }
+                }
+                &:hover {
+                    background-color: var(--input-theme);
+                    .icon path {
+                        fill: var(--btn-theme1);
+                    }
+                }
+            }
+        }
+        .color-wrapper {
+            left: calc(100% + 15px);
+            top: 0;
+            position: absolute;
+            padding: 8px;
+            width: 56px;
+            border-radius: 15px;
+            max-height: 296px;
+            overflow-y: scroll;
+            background-color: var(--btn-theme3);
+            div:not(:last-child) {
+                margin-bottom: 8px;
+            }
+            .add-color-container {
+                position: relative;
+                label {
+                    border-radius: 10px;
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+                    padding: 0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    svg {
+                        width: 28px;
+                        height: 28px;
+                        path {
+                            fill: var(--add-icon-clr);
+                        }
+                    }
+                }
+                input {
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    visibility: hidden;
+                }
+            }
+            .color {
+                cursor: pointer;
+                width: 40px;
+                height: 40px;
+                border-radius: 10px;
+                background-color: var(--clr-val);
+                &.selected {
+                    background-color: transparent;
+                    border: 8px solid var(--clr-val);
+                }
+            }
+        }
+        @media screen and (max-width: 600px) {
+            & {
+                bottom: 15px;
+                left: 50%;
+                top: initial;
+                transform: translate(-50%, 0);
+                display: grid;
+                grid-gap: 5px;
+                grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+                width: calc(100% - 30px);
+                height: max-content;
+                .stroke-wrapper {
+                    flex-direction: row;
+                    bottom: calc(100% + 15px);
+                    top: initial;
+                    left: 0;
+                    padding: 10px 50px 10px 20px;
+                    height: 50px;
+                    width: min(200px, 100%);
+                    justify-content: flex-start;
+                    .stroke-input {
+                        width: 100%;
+                        transform: rotateZ(0deg);
+                    }
+                    .btn-icon {
+                        right: 10px;
+                        top: 50%;
+                        left: initial;
+                        bottom: initial;
+                        transform: translateY(-50%);
+                    }
+                }
+                .color-wrapper {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    bottom: calc(100% + 15px);
+                    top: initial;
+                    left: 0;
+                    height: 56px;
+                    width: max-content;
+                    max-width: 200px;
+                    overflow: scroll hidden;
+                    div:not(:last-child) {
+                        margin: 0 8px 0 0;
+                    }
+                    .add-color-container {
+                        flex-shrink: 0;
+                    }
+                    .color {
+                        flex-shrink: 0;
+                    }
+                }
+            }
+        }
+    }
+}

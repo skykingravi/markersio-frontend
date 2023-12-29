@@ -1,0 +1,47 @@
+@mixin btn-properties($font-size, $color) {
+    font-size: $font-size;
+    padding: 2px 20px;
+    box-shadow: 3px 3px 0px $black;
+    border: 2px solid $black;
+    border-radius: 10px;
+    outline: none;
+    background-color: $color;
+    font-family: "Bebas Neue", sans-serif;
+    transition: box-shadow 0.5s ease;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    @include btn-properties(2.5rem, $yellow-shade);
+    span {
+        padding-top: 2px;
+    }
+    &:hover {
+        box-shadow: 1px 1px 0px $black;
+    }
+}
+
+.btn-icon {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    &:hover {
+        background-color: rgba(15, 15, 15, 0.2);
+    }
+    .icon {
+        width: 30px;
+        height: 30px;
+    }
+}

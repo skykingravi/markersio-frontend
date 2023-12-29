@@ -1,0 +1,39 @@
+.share-page {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-start;
+    align-items: center;
+    user-select: none;
+    div {
+        max-width: 600px;
+        position: relative;
+        width: 100%;
+        img {
+            width: 100%;
+            box-shadow: 3px 3px 0px $black;
+            border: 3px solid $black;
+            border-radius: 15px;
+        }
+        p {
+            font-family: "Urbanist", sans-serif;
+            font-weight: 600;
+            font-size: 2rem;
+            position: absolute;
+            top: 10px;
+            background-color: rgba(240, 240, 240, 0.5);
+            border-radius: 10px;
+            left: 10px;
+            padding: 5px 10px;
+        }
+    }
+    .btn {
+        background-color: $purple-shade;
+        margin: 5px 0 20px 0;
+        font-size: 3.5rem;
+        padding: 2px 24px;
+        span {
+            padding-top: 3px;
+        }
+    }
+}

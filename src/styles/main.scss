@@ -1,0 +1,21 @@
+@import "variables";
+@import "main-heading";
+@import "button";
+@import "default";
+@import "navbar";
+@import "home";
+@import "guide";
+@import "contact";
+@import "editor";
+@import "share";
+@import "auth";
+@import "error";
+@import "canvas";
+@import "pre-loader";
+
+@media screen and (max-width: 600px) {
+    html,
+    body {
+        font-size: 7px !important;
+    }
+}
