@@ -226,6 +226,7 @@ const Editor = () => {
                 />
             )}
             <button
+                title="Add"
                 onClick={() => handleAdd()}
                 disabled={notebooksData.length === NOTEBOOKS_LIMIT}
                 className="add-vb-btn"
@@ -260,7 +261,7 @@ const Editor = () => {
                                 <div className="buttons">
                                     <button
                                         className="btn-icon"
-                                        title="download"
+                                        title="Download"
                                         onClick={(e) =>
                                             handleDownload(e, val._id)
                                         }
@@ -269,21 +270,21 @@ const Editor = () => {
                                     </button>
                                     <button
                                         className="btn-icon"
-                                        title="edit"
+                                        title="Edit"
                                         onClick={(e) => handleEdit(e, val)}
                                     >
                                         <EditVbIcon className="icon" />
                                     </button>
                                     <button
                                         className="btn-icon"
-                                        title="share"
+                                        title="Share"
                                         onClick={(e) => handleShare(e, val._id)}
                                     >
                                         <ShareVbIcon className="icon" />
                                     </button>
                                     <button
                                         className="btn-icon"
-                                        title="delete"
+                                        title="Delete"
                                         onClick={(e) =>
                                             handleDelete(e, val._id)
                                         }

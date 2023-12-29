@@ -121,6 +121,12 @@
             }
         }
         .color-wrapper {
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+
             left: calc(100% + 15px);
             top: 0;
             position: absolute;
@@ -135,6 +141,7 @@
             }
             .add-color-container {
                 position: relative;
+                overflow: hidden;
                 label {
                     border-radius: 10px;
                     width: 40px;
@@ -153,12 +160,14 @@
                     }
                 }
                 input {
-                    width: 100%;
-                    height: 100%;
-                    z-index: -1;
-                    position: absolute;
+                    width: 40px;
+                    height: 40px;
+                    border: none;
+                    outline: none;
+                    position: fixed;
                     top: 0;
-                    left: 0;
+                    background-color: var(--add-icon-clr);
+                    left: calc(100% + 15px + 56px + 10px);
                 }
             }
             .color {
@@ -174,6 +183,9 @@
             }
         }
         @media screen and (max-width: 600px) {
+            &.hidden {
+                transform: translate(-50%, calc(100% + 30px));
+            }
             & {
                 bottom: 15px;
                 left: 50%;
@@ -221,6 +233,10 @@
                     }
                     .add-color-container {
                         flex-shrink: 0;
+                        input {
+                            top: -116px;
+                            left: 0;
+                        }
                     }
                     .color {
                         flex-shrink: 0;

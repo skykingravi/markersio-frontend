@@ -790,6 +790,7 @@ body {
           align-items: center;
   padding: 90px 15px 15px;
   width: 100%;
+  overflow-x: hidden;
   list-style: none;
 }
 .guide-list .guide-item {
@@ -1803,6 +1804,8 @@ body {
   fill: var(--btn-theme1);
 }
 .canvas-container .btns-container .color-wrapper {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   left: calc(100% + 15px);
   top: 0;
   position: absolute;
@@ -1813,11 +1816,15 @@ body {
   overflow-y: scroll;
   background-color: var(--btn-theme3);
 }
+.canvas-container .btns-container .color-wrapper::-webkit-scrollbar {
+  display: none;
+}
 .canvas-container .btns-container .color-wrapper div:not(:last-child) {
   margin-bottom: 8px;
 }
 .canvas-container .btns-container .color-wrapper .add-color-container {
   position: relative;
+  overflow: hidden;
 }
 .canvas-container .btns-container .color-wrapper .add-color-container label {
   border-radius: 10px;
@@ -1843,13 +1850,14 @@ body {
   fill: var(--add-icon-clr);
 }
 .canvas-container .btns-container .color-wrapper .add-color-container input {
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: none;
+  outline: none;
+  position: fixed;
   top: 0;
-  left: 0;
-  visibility: hidden;
+  background-color: var(--add-icon-clr);
+  left: calc(100% + 15px + 56px + 10px);
 }
 .canvas-container .btns-container .color-wrapper .color {
   cursor: pointer;
@@ -1863,6 +1871,10 @@ body {
   border: 8px solid var(--clr-val);
 }
 @media screen and (max-width: 600px) {
+  .canvas-container .btns-container.hidden {
+    -webkit-transform: translate(-50%, calc(100% + 30px));
+            transform: translate(-50%, calc(100% + 30px));
+  }
   .canvas-container .btns-container {
     bottom: 15px;
     left: 50%;
@@ -1931,6 +1943,10 @@ body {
   .canvas-container .btns-container .color-wrapper .add-color-container {
     -ms-flex-negative: 0;
         flex-shrink: 0;
+  }
+  .canvas-container .btns-container .color-wrapper .add-color-container input {
+    top: -116px;
+    left: 0;
   }
   .canvas-container .btns-container .color-wrapper .color {
     -ms-flex-negative: 0;

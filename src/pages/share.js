@@ -4,18 +4,28 @@ import axios from "axios";
 import { useGetURL } from "../hooks/useGetURL";
 import Button from "../components/button.js";
 import jsPDF from "jspdf";
+import { useNavigate } from "react-router-dom";
 
 const Share = () => {
     const [pagesData, setPagesData] = useState([]);
     const [showPreLoader, setShowPreLoader] = useState([]);
     const [, SERVER_URL] = useGetURL();
+    const navigate = useNavigate();
+
     const fetchPages = useCallback(
         async (id) => {
+            if (!id) {
+                navigate("/error");
+            }
             try {
                 setShowPreLoader(true);
                 const response = await axios.get(
                     `${SERVER_URL}/editor/pages/${id}`
                 );
+                if (response.data.length === 0) {
+                    setPagesData([]);
+                    navigate("/error");
+                }
                 setPagesData(response.data);
             } catch (error) {
                 console.error(error);
@@ -23,7 +33,7 @@ const Share = () => {
                 setShowPreLoader(false);
             }
         },
-        [SERVER_URL]
+        [SERVER_URL, navigate]
     );
 
     useEffect(() => {

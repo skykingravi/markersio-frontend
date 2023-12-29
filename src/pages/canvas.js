@@ -90,17 +90,29 @@ const Canvas = ({
             mouseY = 0;
         const X = canvas.getBoundingClientRect().left;
         const Y = canvas.getBoundingClientRect().top;
+        const isTouchDevice =
+            "ontouchstart" in window ||
+            navigator.maxTouchPoints > 0 ||
+            navigator.msMaxTouchPoints > 0;
+
+        function getEventCoordinates(event) {
+            if (isTouchDevice && event.type.startsWith("touch")) {
+                const touch = event.touches[0];
+                return [touch.clientX - X, touch.clientY - Y];
+            } else {
+                return [event.clientX - X, event.clientY - Y];
+            }
+        }
 
         const startDrawing = (e) => {
             setCurrentTool(currentMainTool);
             isDrawing = true;
-            [lastX, lastY] = [e.offsetX - X, e.offsetY - Y];
+            [lastX, lastY] = getEventCoordinates(e);
             draw(e);
         };
 
         const draw = (e) => {
-            mouseX = e.offsetX - X;
-            mouseY = e.offsetY - Y;
+            [mouseX, mouseY] = getEventCoordinates(e);
             if (cursorRef.current) {
                 cursorRef.current.style.left = `${mouseX}px`;
                 cursorRef.current.style.top = `${mouseY}px`;
@@ -113,7 +125,8 @@ const Canvas = ({
             context.moveTo(lastX, lastY);
             context.lineTo(mouseX, mouseY);
             context.stroke();
-            [lastX, lastY] = [mouseX, mouseY];
+            lastX = mouseX;
+            lastY = mouseY;
         };
 
         const stopDrawing = (e) => {
@@ -148,6 +161,11 @@ const Canvas = ({
         canvas.removeEventListener("mouseleave", stopDrawing);
         canvas.removeEventListener("mouseenter", handleEnter);
         window.removeEventListener("resize", handleResizing);
+        canvas.removeEventListener("touchstart", startDrawing, {
+            passive: false,
+        });
+        canvas.removeEventListener("touchmove", draw, { passive: false });
+        canvas.removeEventListener("touchend", stopDrawing);
 
         canvas.addEventListener("mousedown", startDrawing);
         canvas.addEventListener("mousemove", draw);
@@ -155,6 +173,9 @@ const Canvas = ({
         canvas.addEventListener("mouseleave", stopDrawing);
         canvas.addEventListener("mouseenter", handleEnter);
         window.addEventListener("resize", handleResizing);
+        canvas.addEventListener("touchstart", startDrawing);
+        canvas.addEventListener("touchmove", draw);
+        canvas.addEventListener("touchend", stopDrawing);
 
         return () => {
             canvas.removeEventListener("mousedown", startDrawing);
@@ -163,6 +184,9 @@ const Canvas = ({
             canvas.removeEventListener("mouseleave", stopDrawing);
             canvas.removeEventListener("mouseenter", handleEnter);
             window.removeEventListener("resize", handleResizing);
+            canvas.removeEventListener("touchstart", startDrawing);
+            canvas.removeEventListener("touchmove", draw);
+            canvas.removeEventListener("touchend", stopDrawing);
         };
     }, []);
 
@@ -667,6 +691,7 @@ const Canvas = ({
                         "btn-icon" +
                         (currentMainTool === "marker" ? " selected" : "")
                     }
+                    title="Marker"
                 >
                     <MarkerIcon className="icon" />
                 </button>
@@ -677,6 +702,7 @@ const Canvas = ({
                         "btn-icon" +
                         (currentMainTool === "eraser" ? " selected" : "")
                     }
+                    title="Eraser"
                 >
                     <EraserIcon className="icon" />
                 </button>
@@ -689,11 +715,14 @@ const Canvas = ({
                         setCurrentTool((prev) =>
                             prev === "color" ? currentMainTool : "color"
                         );
+                        setShowAddColor(false);
                     }}
+                    title="Color"
                 >
                     <ColorIcon className="icon" />
                 </button>
                 <button
+                    title="Stroke"
                     className={
                         "btn-icon" +
                         (currentTool === "stroke" ? " selected" : "")
@@ -707,6 +736,7 @@ const Canvas = ({
                     <StrokeIcon className="icon" />
                 </button>
                 <button
+                    title="Undo"
                     className="btn-icon"
                     onClick={() => handleUndo()}
                     disabled={undo.length <= 1}
@@ -714,19 +744,29 @@ const Canvas = ({
                     <UndoIcon className="icon" />
                 </button>
                 <button
+                    title="Redo"
                     className="btn-icon"
                     onClick={() => handleRedo()}
                     disabled={redo.length <= 0}
                 >
                     <RedoIcon className="icon" />
                 </button>
-                <button className="btn-icon" onClick={() => handleSave()}>
+                <button
+                    title="Save"
+                    className="btn-icon"
+                    onClick={() => handleSave()}
+                >
                     <SaveIcon className="icon" />
                 </button>
-                <button className="btn-icon" onClick={() => handleClear()}>
+                <button
+                    title="Clear"
+                    className="btn-icon"
+                    onClick={() => handleClear()}
+                >
                     <ClearIcon className="icon" />
                 </button>
                 <button
+                    title="Home"
                     className="btn-icon"
                     type="button"
                     onClick={() => handleHome()}
@@ -734,6 +774,7 @@ const Canvas = ({
                     <HomeIcon className="icon" />
                 </button>
                 <button
+                    title="Previous"
                     className="btn-icon"
                     onClick={() => handlePrev()}
                     disabled={notebookDetails.notebookCurrentPageNo === 1}
@@ -741,6 +782,7 @@ const Canvas = ({
                     <PreviousIcon className="icon" />
                 </button>
                 <button
+                    title="Next"
                     className="btn-icon"
                     onClick={() => handleNext()}
                     disabled={
@@ -751,6 +793,7 @@ const Canvas = ({
                     <NextIcon className="icon" />
                 </button>
                 <button
+                    title="Add"
                     className="btn-icon"
                     onClick={() => handleAdd()}
                     disabled={
@@ -759,10 +802,15 @@ const Canvas = ({
                 >
                     <AddIcon />
                 </button>
-                <button className="btn-icon" onClick={() => handleDownload()}>
+                <button
+                    title="Download"
+                    className="btn-icon"
+                    onClick={() => handleDownload()}
+                >
                     <DownloadIcon className="icon" />
                 </button>
                 <button
+                    title="Delete"
                     className="btn-icon"
                     onClick={() => handleDelete()}
                     disabled={notebookDetails.createdPages.length === 1}
@@ -813,6 +861,7 @@ const Canvas = ({
                             onChange={handleStroke}
                         />
                         <button
+                            title="Set Stroke"
                             className="btn-icon"
                             onClick={() => setCurrentTool(currentMainTool)}
                         >
@@ -824,6 +873,7 @@ const Canvas = ({
                     <div className="color-wrapper">
                         <div className="add-color-container">
                             <label
+                                title="Add Color"
                                 style={{
                                     backgroundColor: `${newColor}`,
                                     "--add-icon-clr": `${
