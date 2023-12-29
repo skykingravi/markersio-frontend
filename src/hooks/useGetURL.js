@@ -1,6 +1,6 @@
 export const useGetURL = () => {
-    const CLIENT_URL = process.env.REACT_APP_CLIENT_URL;
-    const SERVER_URL = process.env.REACT_APP_SERVER_URL;
+    const CLIENT_URL = "https://markersio.vercel.app";
+    const SERVER_URL = "https://markersio-backend.onrender.com";
 
     return [CLIENT_URL, SERVER_URL];
 };
