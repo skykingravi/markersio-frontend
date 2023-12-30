@@ -228,10 +228,12 @@ const Canvas = ({
             );
             response.data.forEach((val) => {
                 if (val._id === notebookDetails._id) {
-                    const ctx = canvasRef.current.getContext("2d");
-                    ctx.strokeStyle =
-                        val.notebookColors[val.notebookCurrentColor - 1];
-                    ctx.lineWidth = val.notebookStrokeSize;
+                    if (!canvasRef.current) {
+                        const ctx = canvasRef.current.getContext("2d");
+                        ctx.strokeStyle =
+                            val.notebookColors[val.notebookCurrentColor - 1];
+                        ctx.lineWidth = val.notebookStrokeSize;
+                    }
                     setNotebookDetails(val);
                 }
             });
