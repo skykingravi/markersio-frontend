@@ -125,7 +125,7 @@ const NotebookForm = ({
                         console.error(error);
                     }
 
-                    fetchNotebooks();
+                    await fetchNotebooks();
                 }
             } catch (error) {
                 console.error(error);
