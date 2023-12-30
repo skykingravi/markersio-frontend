@@ -46,7 +46,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="contact-wrapper">
                     <h2>Say Hi!</h2>
                     <div>
-                        <label htmlFor="contactName">Name</label>
+                        <label htmlFor="contactName">-Name-</label>
                         <br />
                         <input
                             placeholder="e.g.- Ravi Meena"
@@ -59,7 +59,7 @@ const Contact = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="contactEmail">Email</label>
+                        <label htmlFor="contactEmail">-Email-</label>
                         <br />
                         <input
                             placeholder="e.g.- ravi123@gmail.com"
@@ -72,7 +72,7 @@ const Contact = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="contactMessage">Message</label>
+                        <label htmlFor="contactMessage">-Message-</label>
                         <br />
                         <textarea
                             rows="8"

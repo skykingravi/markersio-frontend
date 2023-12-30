@@ -23,7 +23,7 @@ const Form = ({
             <h1>{label === "login" ? "WELCOME BACK" : "CREATE AN ACCOUNT"}</h1>
             {label === "register" && (
                 <div>
-                    <label htmlFor="userName">Name:</label>
+                    <label htmlFor="userName">-Name-</label>
                     <br />
                     <input
                         autoComplete="name"
@@ -38,7 +38,7 @@ const Form = ({
                 </div>
             )}
             <div>
-                <label htmlFor={label + "-userEmail"}>Email:</label>
+                <label htmlFor={label + "-userEmail"}>-Email-</label>
                 <br />
                 <input
                     autoComplete="email"
@@ -52,7 +52,7 @@ const Form = ({
                 />
             </div>
             <div>
-                <label htmlFor={label + "-userPassword"}>Password:</label>
+                <label htmlFor={label + "-userPassword"}>-Password-</label>
                 <br />
                 <input
                     autoComplete="password"

@@ -52,7 +52,9 @@ function App() {
                     )}
                     <Route path="/guide" element={<Guide />} />
                     <Route path="/contact" element={<Contact />} />
-                    <Route path="/auth" element={<Auth />} />
+                    {!cookies.access_token && (
+                        <Route path="/auth" element={<Auth />} />
+                    )}
                     <Route path="/share" element={<Share />} />
                     <Route path="*" element={<NotFound />} />
                 </Routes>

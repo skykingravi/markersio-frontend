@@ -165,7 +165,7 @@ const NotebookForm = ({
                     <h1>{purpose} Notebook</h1>
 
                     <div>
-                        <label htmlFor="notebookHeading">Heading</label>
+                        <label htmlFor="notebookHeading">-Heading-</label>
                         <br />
                         <input
                             placeholder="e.g.- Machine Learning"
@@ -179,7 +179,9 @@ const NotebookForm = ({
                     </div>
 
                     <div>
-                        <label htmlFor="notebookDescription">Description</label>
+                        <label htmlFor="notebookDescription">
+                            -Description-
+                        </label>
                         <br />
                         <input
                             placeholder="e.g.- This is a virtual notebook for machine learning."
@@ -194,7 +196,7 @@ const NotebookForm = ({
 
                     <div>
                         <label htmlFor="notebookBackgroundColor">
-                            Background Color
+                            -Background Color-
                         </label>
                         <br />
                         <input
