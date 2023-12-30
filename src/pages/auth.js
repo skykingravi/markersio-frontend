@@ -37,9 +37,12 @@ const Login = ({ setShowPreLoader }) => {
                 window.localStorage.setItem("token", response.data.token);
                 window.localStorage.setItem("userId", response.data.userId);
                 navigate("/editor");
+            } else {
+                setShowPreLoader(false);
             }
         } catch (error) {
             console.error(error);
+            setShowPreLoader(false);
         }
     };
 

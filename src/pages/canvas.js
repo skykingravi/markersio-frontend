@@ -207,7 +207,7 @@ const Canvas = ({
                     },
                 }
             );
-            setPagesData(response.data);
+            await setPagesData(response.data);
         } catch (error) {
             console.error(error);
         } finally {
@@ -228,6 +228,10 @@ const Canvas = ({
             );
             response.data.forEach((val) => {
                 if (val._id === notebookDetails._id) {
+                    const ctx = canvasRef.current.getContext("2d");
+                    ctx.strokeStyle =
+                        val.notebookColors[val.notebookCurrentColor - 1];
+                    ctx.lineWidth = val.notebookStrokeSize;
                     setNotebookDetails(val);
                 }
             });
@@ -576,9 +580,8 @@ const Canvas = ({
                     },
                 }
             );
-            await fetchPages();
-            await fetchNotebookDetails();
-            init();
+            fetchPages();
+            fetchNotebookDetails();
             if (
                 notebookDetails.notebookCurrentPageNo ===
                 notebookDetails.createdPages.length
@@ -593,12 +596,10 @@ const Canvas = ({
                 );
             } else {
                 drawContentOnCanvas(
-                    pagesData[notebookDetails.notebookCurrentPageNo - 1]
-                        .pageContent
+                    pagesData[notebookDetails.notebookCurrentPageNo].pageContent
                 );
                 undoPush(
-                    pagesData[notebookDetails.notebookCurrentPageNo - 1]
-                        .pageContent
+                    pagesData[notebookDetails.notebookCurrentPageNo].pageContent
                 );
             }
         } catch (error) {
