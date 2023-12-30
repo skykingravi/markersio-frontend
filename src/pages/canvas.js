@@ -578,8 +578,7 @@ const Canvas = ({
             );
             await fetchPages();
             await fetchNotebookDetails();
-            undoClear();
-            redoClear();
+            init();
             if (
                 notebookDetails.notebookCurrentPageNo ===
                 notebookDetails.createdPages.length
