@@ -173,7 +173,7 @@ const Editor = () => {
                 }
             );
             alert(response.data.message);
-            fetchNotebooks();
+            await fetchNotebooks();
         } catch (error) {
             console.error(error);
         } finally {
