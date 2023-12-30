@@ -36,12 +36,11 @@ const Login = ({ setShowPreLoader }) => {
                 setCookies("access_token", response.data.token);
                 window.localStorage.setItem("token", response.data.token);
                 window.localStorage.setItem("userId", response.data.userId);
+                setShowPreLoader(false);
                 navigate("/editor");
             }
         } catch (error) {
             console.error(error);
-        } finally {
-            setShowPreLoader(false);
         }
     };
 
