@@ -14,7 +14,7 @@ const Guide = () => {
                 <h3>
                     Make sure to create an account (if not already).
                     <span
-                        title="link"
+                        title="Link"
                         className="guide-link"
                         onClick={() => navigate("/auth")}
                     >
@@ -31,7 +31,7 @@ const Guide = () => {
                 <h3>
                     Create your first virtual notebook.
                     <span
-                        title="link"
+                        title="Link"
                         className="guide-link"
                         onClick={() => navigate("/editor")}
                     >
@@ -108,7 +108,7 @@ const Guide = () => {
                 <h3>
                     Operations on virtual notebooks.
                     <span
-                        title="link"
+                        title="Link"
                         className="guide-link"
                         onClick={() => navigate("/editor")}
                     >
@@ -138,7 +138,7 @@ const Guide = () => {
                     Fix bugs and enhance features.
                     <span>
                         <a
-                            title="link"
+                            title="Link"
                             className="guide-link"
                             href="https://github.com/skykingravi"
                             target="_blank"
