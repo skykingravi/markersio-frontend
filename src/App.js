@@ -34,17 +34,11 @@ function App() {
     );
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            if (cookies.access_token) {
-                checkTokenExpiry(cookies.access_token);
-            } else if (window.localStorage.getItem("token")) {
-                checkTokenExpiry(window.localStorage.getItem("token"));
-            }
-        }, 2000);
-
-        return () => {
-            clearTimeout(timer);
-        };
+        if (cookies.access_token) {
+            checkTokenExpiry(cookies.access_token);
+        } else if (window.localStorage.getItem("token")) {
+            checkTokenExpiry(window.localStorage.getItem("token"));
+        }
     }, [checkTokenExpiry, cookies.access_token]);
 
     return (
