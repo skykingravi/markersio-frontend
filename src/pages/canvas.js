@@ -105,6 +105,7 @@ const Canvas = ({
         }
 
         const startDrawing = (e) => {
+            e.preventDefault();
             setCurrentTool(currentMainTool);
             isDrawing = true;
             [lastX, lastY] = getEventCoordinates(e);
@@ -112,6 +113,7 @@ const Canvas = ({
         };
 
         const draw = (e) => {
+            e.preventDefault();
             [mouseX, mouseY] = getEventCoordinates(e);
             if (cursorRef.current) {
                 cursorRef.current.style.left = `${mouseX}px`;
@@ -130,6 +132,7 @@ const Canvas = ({
         };
 
         const stopDrawing = (e) => {
+            e.preventDefault();
             isDrawing = false;
             if (cursorRef.current && e.type === "mouseleave") {
                 cursorRef.current.style.setProperty("display", "none");
