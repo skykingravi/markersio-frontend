@@ -132,6 +132,7 @@ const Canvas = ({
         };
 
         const stopDrawing = (e) => {
+            if (e.type === "touchend" && e.touches.length > 1) return;
             e.preventDefault();
             isDrawing = false;
             if (cursorRef.current && e.type === "mouseleave") {
