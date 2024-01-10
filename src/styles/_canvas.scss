@@ -23,7 +23,7 @@
         position: absolute;
         padding: 10px 15px;
         top: 10px;
-        border-radius: 10px;
+        // border-radius: 10px;
         left: 10px;
         font-family: "Urbanist", sans-serif;
         font-weight: 500;
@@ -37,7 +37,7 @@
         left: 15px;
         top: 50%;
         transform: translate(0%, -50%);
-        border-radius: 15px;
+        // border-radius: 15px;
         display: flex;
         gap: 5px;
         flex-direction: column;
@@ -80,7 +80,7 @@
             align-items: center;
             padding: 15px 10px 50px;
             width: 50px;
-            border-radius: 15px;
+            // border-radius: 15px;
             height: 200px;
             justify-content: center;
             background-color: var(--btn-theme1);
@@ -90,7 +90,7 @@
                 left: 50%;
                 transform: translateX(-50%);
                 border: 1px solid;
-                border-radius: 50%;
+                // border-radius: 50%;
             }
             .stroke-input {
                 transform: rotateZ(-90deg);
@@ -133,7 +133,7 @@
             position: absolute;
             padding: 8px;
             width: 56px;
-            border-radius: 15px;
+            // border-radius: 15px;
             max-height: 296px;
             overflow-y: scroll;
             background-color: var(--btn-theme3);
@@ -144,7 +144,7 @@
                 position: relative;
                 overflow: hidden;
                 label {
-                    border-radius: 10px;
+                    // border-radius: 10px;
                     width: 40px;
                     height: 40px;
                     cursor: pointer;
@@ -175,7 +175,7 @@
                 cursor: pointer;
                 width: 40px;
                 height: 40px;
-                border-radius: 10px;
+                // border-radius: 10px;
                 background-color: var(--clr-val);
                 &.selected {
                     background-color: transparent;

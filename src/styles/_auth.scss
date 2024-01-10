@@ -3,7 +3,7 @@
     min-height: 100vh;
     .auth-container {
         background-color: $green-shade;
-        border-radius: 15px;
+        // border-radius: 15px;
         height: max(530px, calc(100vh - 105px));
         width: 100%;
         position: relative;
@@ -19,7 +19,7 @@
             background-color: $purple-shade;
             padding: 15px 15px 20px;
             border: 3px solid $black;
-            border-radius: 10px;
+            // border-radius: 10px;
             transition: transform 0.8s ease;
             overflow: hidden;
             form {
@@ -64,7 +64,7 @@
                     input[type="password"] {
                         margin-top: 2px;
                         font-family: "Urbanist", sans-serif;
-                        border-radius: 10px;
+                        // border-radius: 10px;
                         font-size: 2.5rem;
                         font-weight: 500;
                         outline: none;

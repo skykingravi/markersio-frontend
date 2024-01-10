@@ -3,7 +3,7 @@
     padding: 2px 20px;
     box-shadow: 3px 3px 0px $black;
     border: 2px solid $black;
-    border-radius: 10px;
+    // border-radius: 10px;
     outline: none;
     background-color: $color;
     font-family: "Bebas Neue", sans-serif;
@@ -36,7 +36,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    // border-radius: 10px;
     &:hover {
         background-color: rgba(15, 15, 15, 0.2);
     }
